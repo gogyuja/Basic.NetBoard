@@ -3,5 +3,5 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h1>글쓰는 머머머 테이블로 구성</h1>
-    <h1>글목록으로 돌아가기</h1>
+    <a href="/MainPage.aspx"><h1>글목록으로 돌아가기</h1></a>
 </asp:Content>

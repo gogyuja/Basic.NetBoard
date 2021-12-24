@@ -67,6 +67,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="dbtest.aspx" />
+    <Content Include="dbtest2.aspx" />
     <Content Include="Global.asax" />
     <Content Include="InfoPage.aspx" />
     <Content Include="MainPage.aspx" />
@@ -75,6 +77,20 @@
     <Content Include="WritePage.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="dbtest.aspx.cs">
+      <DependentUpon>dbtest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dbtest.aspx.designer.cs">
+      <DependentUpon>dbtest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="dbtest2.aspx.cs">
+      <DependentUpon>dbtest2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dbtest2.aspx.designer.cs">
+      <DependentUpon>dbtest2.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
