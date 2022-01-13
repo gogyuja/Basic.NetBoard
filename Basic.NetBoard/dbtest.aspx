@@ -3,7 +3,7 @@
 <%@ Import Namespace = "System.Data.SqlClient" %>
 <script language="C#" runat="server">
 //https://www.youtube.com/watch?v=HD5LzY76vH0 참조
- void Page_Load()
+/* void Page_Load()
      {
       //회사노트북
       string str_conn = "server=DESKTOP-VK51DCG\\STUDY;user id=DESKTOP-VK51DCG;password='';database=aspnet";
@@ -16,7 +16,7 @@
       conn.Close();
 
       Response.Write ("close(): " + conn.State + "<hr>");
-     }
+     }*/
 </script>
 
 <!DOCTYPE html>
@@ -28,7 +28,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <h1>.......푸시푸시가안되....</h1>
+        <h1>글목록</h1>
         <div>
         </div>
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Basic.NetBoardConnectionString %>" OnSelecting="SqlDataSource1_Selecting" SelectCommand="SELECT * FROM [board]"></asp:SqlDataSource>
@@ -37,8 +37,7 @@
                 <asp:BoundField DataField="id" HeaderText="id" ReadOnly="True" SortExpression="id" />
                 <asp:BoundField DataField="title" HeaderText="제목" SortExpression="title" />
                 <asp:BoundField DataField="writer" HeaderText="글쓴이" SortExpression="writer" />
-                <asp:BoundField DataField="pw" HeaderText="pw" SortExpression="pw" />
-                <asp:BoundField DataField="date" HeaderText="date" SortExpression="date" />
+                <asp:BoundField DataField="date" DataFormatString="{0:yyyy/MM/dd HH:mm}" HeaderText="date" SortExpression="date" />
                 <asp:BoundField DataField="count" HeaderText="count" SortExpression="count" />
                 <asp:BoundField DataField="content" HeaderText="content" SortExpression="content" />
             </Columns>
