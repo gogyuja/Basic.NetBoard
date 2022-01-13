@@ -81,6 +81,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="dbtest.aspx" />
+    <Content Include="Global.asax" />
     <Content Include="InfoPage.aspx" />
     <Content Include="MainPage.aspx" />
     <Content Include="ModifyPage.aspx" />
@@ -95,6 +96,9 @@
     </Compile>
     <Compile Include="dbtest.aspx.designer.cs">
       <DependentUpon>dbtest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="InfoPage.aspx.cs">
       <DependentUpon>InfoPage.aspx</DependentUpon>
@@ -146,6 +150,7 @@
   <ItemGroup>
     <Folder Include="App_Code\" />
     <Folder Include="App_Data\" />
+    <Folder Include="App_GlobalResources\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <PropertyGroup>

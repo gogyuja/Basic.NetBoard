@@ -51,6 +51,15 @@ namespace Basic.NetBoard
         protected global::System.Web.UI.WebControls.TextBox title;
 
         /// <summary>
+        /// vldTitleRequired 컨트롤입니다.
+        /// </summary>
+        /// <remarks>
+        /// 자동 생성 필드입니다.
+        /// 수정하려면 디자이너 파일에서 코드 숨김 파일로 필드 선언을 이동하세요.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator vldTitleRequired;
+
+        /// <summary>
         /// writerLabel 컨트롤입니다.
         /// </summary>
         /// <remarks>
@@ -67,6 +76,15 @@ namespace Basic.NetBoard
         /// 수정하려면 디자이너 파일에서 코드 숨김 파일로 필드 선언을 이동하세요.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox writer;
+
+        /// <summary>
+        /// vldWriterRequired 컨트롤입니다.
+        /// </summary>
+        /// <remarks>
+        /// 자동 생성 필드입니다.
+        /// 수정하려면 디자이너 파일에서 코드 숨김 파일로 필드 선언을 이동하세요.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator vldWriterRequired;
 
         /// <summary>
         /// pwLabel 컨트롤입니다.
@@ -87,6 +105,15 @@ namespace Basic.NetBoard
         protected global::System.Web.UI.WebControls.TextBox pw;
 
         /// <summary>
+        /// vldPwRequired 컨트롤입니다.
+        /// </summary>
+        /// <remarks>
+        /// 자동 생성 필드입니다.
+        /// 수정하려면 디자이너 파일에서 코드 숨김 파일로 필드 선언을 이동하세요.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator vldPwRequired;
+
+        /// <summary>
         /// contentLabel 컨트롤입니다.
         /// </summary>
         /// <remarks>
@@ -103,6 +130,15 @@ namespace Basic.NetBoard
         /// 수정하려면 디자이너 파일에서 코드 숨김 파일로 필드 선언을 이동하세요.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox content;
+
+        /// <summary>
+        /// vldContentRequired 컨트롤입니다.
+        /// </summary>
+        /// <remarks>
+        /// 자동 생성 필드입니다.
+        /// 수정하려면 디자이너 파일에서 코드 숨김 파일로 필드 선언을 이동하세요.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator vldContentRequired;
 
         /// <summary>
         /// writeBtn 컨트롤입니다.
