@@ -22,6 +22,8 @@ namespace Basic.NetBoard
 
         protected void btnWrite_Click(object sender, EventArgs e)
         {
+            if (Page.IsValid)
+            {
                 string insertString = "INSERT INTO dbo.board(title, writer,pw,date,count,content)";
                 insertString += "VALUES(@title, @writer, @pw,GETDATE(),0,@content )";
                 string query2 = "Select @@Identity";
@@ -49,6 +51,11 @@ namespace Basic.NetBoard
                     conn.Close();
                 }
                 Response.Redirect("/InfoPage.aspx?id=" + id);
+            }
+            else
+            {
+
+            }
         }
     }
 }

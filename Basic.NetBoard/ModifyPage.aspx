@@ -9,15 +9,24 @@
         <table class="tbl01" cellpading="0" cellspacing="0">
             <tr>
                 <td><asp:Label ID="titleLabel" runat="server" Text="제목 : "></asp:Label></td>
-                <td><asp:TextBox ID="title" runat="server" Text="title"></asp:TextBox></td>
+                <td>
+                    <asp:TextBox ID="title" runat="server" Text="title"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="vldTitleRequired" runat="server" ControlToValidate="title" ErrorMessage="제목을 입력해주세요" SetFocusOnError="True" Display="Dynamic"></asp:RequiredFieldValidator>
+                </td>
             </tr>
             <tr>
                 <td><asp:Label ID="writerLabel" runat="server" Text="작성자 : "></asp:Label></td>
-                <td><asp:TextBox ID="writer" runat="server" Text="writer"></asp:TextBox></td>
+                <td>
+                    <asp:TextBox ID="writer" runat="server" Text="writer"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="vldWriterRequired" runat="server" ControlToValidate="writer" ErrorMessage="작성자를 입력해주세요" SetFocusOnError="True" Display="Dynamic"></asp:RequiredFieldValidator>
+                </td>
             </tr>
             <tr>
                 <td><asp:Label ID="contentLabel" runat="server" Text="내용 : "></asp:Label></td>
-                <td><asp:TextBox ID="content" runat="server" Text="내용"></asp:TextBox></td>
+                <td>
+                    <asp:TextBox ID="content" runat="server" Text="내용"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="vldContentRequired" runat="server" ControlToValidate="content" ErrorMessage="내용을 입력해주세요" SetFocusOnError="True" Display="Dynamic"></asp:RequiredFieldValidator>
+                </td>
             </tr>
         </table>
         <div align="right">

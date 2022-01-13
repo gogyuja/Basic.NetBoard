@@ -25,6 +25,7 @@
                 <td>
                     <asp:TextBox ID="pw" runat="server" OnTextChanged="pw_TextChanged" TextMode="Password"/>
                     <asp:RequiredFieldValidator ID="vldPwRequired" runat="server" ControlToValidate="pw" ErrorMessage="비밀번호를 입력해주세요" SetFocusOnError="True" Display="Dynamic"></asp:RequiredFieldValidator>
+                    <asp:RegularExpressionValidator ID="vldPwNumRequired" runat="server" ControlToValidate="pw" ErrorMessage="숫자만 입력해주세요" SetFocusOnError="true" Display="Dynamic" ValidationExpression="^[0-9]+$"></asp:RegularExpressionValidator>
                 </td>
             </tr>
             <tr>

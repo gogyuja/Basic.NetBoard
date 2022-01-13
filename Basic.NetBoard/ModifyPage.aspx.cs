@@ -46,23 +46,30 @@ namespace Basic.NetBoard
 
         protected void btnWrite_Click(object sender, EventArgs e)
         {
-            string updateString = "UPDATE dbo.board set writer=@writer, ";
-            updateString += "title=@title, content=@content " ;
-            updateString += "WHERE id=" + Request["id"];
+            if (Page.IsValid)
+            {
+                string updateString = "UPDATE dbo.board set writer=@writer, ";
+                updateString += "title=@title, content=@content ";
+                updateString += "WHERE id=" + Request["id"];
 
-            System.Diagnostics.Debug.WriteLine(title.Text);
-            System.Diagnostics.Debug.WriteLine(writer.Text);
-            System.Diagnostics.Debug.WriteLine(content.Text);
+                System.Diagnostics.Debug.WriteLine(title.Text);
+                System.Diagnostics.Debug.WriteLine(writer.Text);
+                System.Diagnostics.Debug.WriteLine(content.Text);
 
-            DBConn conn = new DBConn();
-            SqlCommand cmd = new SqlCommand(updateString, conn.GetConn());
-            cmd.Parameters.AddWithValue("@title", title.Text);
-            cmd.Parameters.AddWithValue("@writer", writer.Text);
-            cmd.Parameters.AddWithValue("@content", content.Text);
-            cmd.ExecuteNonQuery();
-            conn.Close();
+                DBConn conn = new DBConn();
+                SqlCommand cmd = new SqlCommand(updateString, conn.GetConn());
+                cmd.Parameters.AddWithValue("@title", title.Text);
+                cmd.Parameters.AddWithValue("@writer", writer.Text);
+                cmd.Parameters.AddWithValue("@content", content.Text);
+                cmd.ExecuteNonQuery();
+                conn.Close();
 
-            Response.Redirect("/InfoPage.aspx?id=" + Request["id"]);
+                Response.Redirect("/InfoPage.aspx?id=" + Request["id"]);
+            }
+            else
+            {
+
+            }
         }
     }
 }
