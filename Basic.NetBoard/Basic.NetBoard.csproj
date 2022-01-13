@@ -88,7 +88,6 @@
     <Content Include="WritePage.aspx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AjaxController.cs" />
     <Compile Include="DBConn.cs" />
     <Compile Include="dbtest.aspx.cs">
       <DependentUpon>dbtest.aspx</DependentUpon>

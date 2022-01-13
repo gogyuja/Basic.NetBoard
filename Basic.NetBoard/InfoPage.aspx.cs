@@ -7,6 +7,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.Services;
 using System.Web.Script.Services;
+using System.Net.Http;
 
 namespace Basic.NetBoard
 {
@@ -30,6 +31,7 @@ namespace Basic.NetBoard
 
                 if (dr.Read())
                 {
+                    HiddenId.Value = Request["id"];
                     title.Text = dr["Title"].ToString();
                     writer.Text = dr["writer"].ToString();
                     date.Text = dr["date"].ToString();
@@ -41,12 +43,55 @@ namespace Basic.NetBoard
 
         //여기서 Page_Load의 Request객체를 불러올 방법이없는가?
         [System.Web.Services.WebMethod]
-        public static int deleteBoard(int submitPw)
+        public static int deleteBoard(int submitPw,int id)
         {
-           /* DBConn conn=new DBConn();
+            bool check=comparePw(submitPw, id);
+            if (check)
+            {
+                string delString = "DELETE FROM dbo.board where id=" + id;
+                DBConn conn = new DBConn();
+                SqlDataReader dr = conn.ExecuteReader(delString);
+                conn.Close();
+                //글삭제
+                return 1;
+            }
+            else
+            {
+                //글삭제실패
+                return 0;
+            }
+         }
 
-            string pw = "SELECT pw from dbo.board where id=" + ;*/
-            return submitPw;
+        [System.Web.Services.WebMethod]
+        public static int modifyBoard(int submitPw,int id)
+        {
+            bool check = comparePw(submitPw, id);
+            if (check)
+            {
+                return 1;
+            }
+            else
+            {
+                return 0;
+            }
+        }
+
+       
+        public static bool comparePw(int submitPw,int id)
+        {
+            string selectString= "SELECT pw from dbo.board where id=" + id;
+            int pw=-999;
+            DBConn conn = new DBConn();
+            SqlDataReader dr=conn.ExecuteReader(selectString);
+            if (dr.Read())
+            {
+                pw = Int32.Parse(dr["pw"].ToString());
+            }
+            conn.Close();
+            if (pw == submitPw)
+                return true;
+            else
+                return false;
         }
     }
 }
