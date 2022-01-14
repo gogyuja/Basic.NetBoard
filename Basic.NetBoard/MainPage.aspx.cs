@@ -21,7 +21,6 @@ namespace Basic.NetBoard
             {
                 try{
                     conn.Open();
-                    ltConnectionMessage.Text = "Connection successful";
                     try
                     {
                         SqlCommand command = new SqlCommand("select id,title,writer, format(date,'yy-MM-dd HH:MM'),count from board", conn);
@@ -70,6 +69,22 @@ namespace Basic.NetBoard
             {
                 e.Row.Attributes["onclick"] = Page.ClientScript.GetPostBackClientHyperlink(boardGrid, "Select$" + e.Row.RowIndex);
                 e.Row.Attributes["style"] = "cursor:pointer";
+                e.Row.Cells[0].Width = Unit.Pixel(5);
+                e.Row.Cells[1].Width = Unit.Pixel(50);
+                e.Row.Cells[2].Width = Unit.Pixel(30);
+                e.Row.Cells[3].Width = Unit.Pixel(60);
+                e.Row.Cells[4].Width = Unit.Pixel(20);
+                e.Row.Cells[5].Width = Unit.Pixel(150);
+                
+                //CSS에서 해줘야되는게 맞는데 안되서ㅎㅎ....
+                int length = e.Row.Cells[5].Text.Length;
+                if (length > 10)
+                {
+                    String cut=e.Row.Cells[5].Text.Substring(0, 10);
+                    cut += "...";
+                    e.Row.Cells[5].Text = cut;
+                }
+                
             }
         }
     }

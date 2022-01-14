@@ -85,6 +85,7 @@
     <Content Include="InfoPage.aspx" />
     <Content Include="MainPage.aspx" />
     <Content Include="ModifyPage.aspx" />
+    <Content Include="style.css" />
     <Content Include="Web.config" />
     <Content Include="WritePage.aspx" />
   </ItemGroup>
