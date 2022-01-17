@@ -46,7 +46,7 @@
         </div>
         <div align="right">
             <asp:Button ID="Button1" CssClass="write-btn" runat="server" Text="목록으로" PostBackUrl="~/MainPage.aspx" CausesValidation="false"/>
-            <asp:Button ID="modifyBtn" CssClass="write-btn" runat="server" OnClick="btnWrite_Click"  Text="수정완료" />
+            <asp:Button ID="modifyBtn" CssClass="write-btn" runat="server" OnClick="btnModify_Click"  Text="수정완료" />
         </div>
     </div>
     </form>

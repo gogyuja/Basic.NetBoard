@@ -57,10 +57,20 @@
                 }
             });
         }
+
+        //글보기 기능
+        function seeBoard() {
+            //목록 보기를 위한 page번호
+            var page = document.getElementById(('<%= HiddenPage.ClientID%>'));
+
+            window.location.href = "MainPage.aspx?page=" + page.value;
+        }
     </script>
     <link href="style.css" rel="stylesheet" />
     <div align="center"class="box-container"> 
     <asp:HiddenField ID="HiddenId" runat="server"/>
+    <!--목록보기를 위한 Page다.-->
+    <asp:HiddenField ID="HiddenPage" runat="server" />
     <h1>글읽기</h1>
     
         <table class="content-container" cellpading="0" cellspacing="0" border="1">
@@ -91,7 +101,8 @@
         </table>
     
     <div align="right">
-        <asp:Button ID="Button1" runat="server" CssClass="write-btn" Text="목록으로" PostBackUrl="~/MainPage.aspx"/>
+<%--    <asp:Button ID="Button1" runat="server" CssClass="write-btn" Text="목록으로" PostBackUrl="~/MainPage.aspx"/>--%>
+        <button id="btnWrite_test" type="button" onclick="seeBoard()" class="write-btn">목록으로</button>
         <asp:Button ID="modifyBtn" runat="server" CssClass="write-btn" OnClientClick="modifyBoard(event)"  Text="글수정" />
         <asp:Button ID="delBtn" runat="server" CssClass="write-btn" OnClientClick="deleteBoard(event)" Text="글삭제" />
     </div>

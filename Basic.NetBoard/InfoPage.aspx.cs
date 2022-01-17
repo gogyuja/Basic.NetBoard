@@ -14,7 +14,8 @@ namespace Basic.NetBoard
     public partial class InfoPage : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
-        {   
+        {
+
             if (!IsPostBack)
             {
                 //조회수 증가
@@ -31,7 +32,10 @@ namespace Basic.NetBoard
 
                 if (dr.Read())
                 {
+                    //해당글의 id 번호
                     HiddenId.Value = Request["id"];
+                    //목록보기를 눌렀을 때 이전에 보던 페이지를 보기위한 요소
+                    HiddenPage.Value = Request["page"];
                     title.Text = dr["Title"].ToString();
                     writer.Text = dr["writer"].ToString();
                     date.Text = dr["date"].ToString();

@@ -44,7 +44,7 @@ namespace Basic.NetBoard
             }
         }
 
-        protected void btnWrite_Click(object sender, EventArgs e)
+        protected void btnModify_Click(object sender, EventArgs e)
         {
             if (Page.IsValid)
             {

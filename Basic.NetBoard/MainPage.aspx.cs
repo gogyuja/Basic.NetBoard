@@ -13,10 +13,21 @@ namespace Basic.NetBoard
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            /*int index = boardGrid.PageIndex;
+            System.Diagnostics.Debug.WriteLine(index); */
             
-            /*var connectionFromConfiguration = WebConfigurationManager.ConnectionStrings["Basic.NetBoardConnectionString"];
+            //글상세보기에서 page 뒤로가기를 위한 요소. 근데 에러다.
+            /*
+             처음에는 글 상세보기 이후에 목록보기 클릭시 정상적으로 작동하나 그 이후에 page요소가 변경되지 않는 문제가 있다.
+             */
+            string page= Request["page"];
+            if (page!=null)
+            {
+                boardGrid.SetPageIndex(Int32.Parse(page));
+            }
+            
 
+            /*var connectionFromConfiguration = WebConfigurationManager.ConnectionStrings["Basic.NetBoardConnectionString"];
             using(SqlConnection conn = new SqlConnection(connectionFromConfiguration.ConnectionString))
             {
                 try{
@@ -53,14 +64,18 @@ namespace Basic.NetBoard
                     conn.Dispose();
                 }
             }*/
-       
-        
+
+
         }
 
         protected void OnSelectedIndexChanged(object sender, EventArgs e)
         {
+            //해당 글의 id
             string id = boardGrid.SelectedRow.Cells[0].Text;
-            Response.Redirect(String.Format("InfoPage.aspx?id="+id));
+            //현재페이지
+            int page = Convert.ToInt32(boardGrid.PageIndex);
+
+            Response.Redirect(String.Format("InfoPage.aspx?id=" + id + "&page="+ page));
         }
 
         protected void OnRowDataBound(object sender, System.Web.UI.WebControls.GridViewRowEventArgs e)
@@ -76,7 +91,7 @@ namespace Basic.NetBoard
                 e.Row.Cells[4].Width = Unit.Pixel(20);
                 e.Row.Cells[5].Width = Unit.Pixel(150);
                 
-                //CSS에서 해줘야되는게 맞는데 안되서ㅎㅎ....
+                //글의 내용부분이 너무 길때 .....으로 생략표시해준다.
                 int length = e.Row.Cells[5].Text.Length;
                 if (length > 10)
                 {
