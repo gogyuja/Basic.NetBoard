@@ -15,17 +15,19 @@ namespace Basic.NetBoard
         {
             /*int index = boardGrid.PageIndex;
             System.Diagnostics.Debug.WriteLine(index); */
-            
+
             //글상세보기에서 page 뒤로가기를 위한 요소. 근데 에러다.
             /*
              처음에는 글 상세보기 이후에 목록보기 클릭시 정상적으로 작동하나 그 이후에 page요소가 변경되지 않는 문제가 있다.
              */
-            string page= Request["page"];
-            if (page!=null)
+            if (!IsPostBack)
             {
-                boardGrid.SetPageIndex(Int32.Parse(page));
+                string page = Request["page"];
+                if (page != null)
+                {
+                    boardGrid.SetPageIndex(Int32.Parse(page));
+                }
             }
-            
 
             /*var connectionFromConfiguration = WebConfigurationManager.ConnectionStrings["Basic.NetBoardConnectionString"];
             using(SqlConnection conn = new SqlConnection(connectionFromConfiguration.ConnectionString))
